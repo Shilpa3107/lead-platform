@@ -4,7 +4,7 @@ A lead management application for a small sales team — built for Digital Heroe
 Full Stack Development qualification task ("Build a lead platform, not a lead form").
 
 **Live app:** https://lead-platform-iota.vercel.app
-**Live API:** https://lead-platform-3pwk.onrender.com
+**Live API:** https://lead-platform-3pwk.onrender.com/docs
 
 ## What this is
 - A public, unauthenticated lead-capture form for external visitors
