@@ -16,7 +16,7 @@ app.add_middleware(
     CORSMiddleware,
     allow_origins=[
         "http://localhost:5173",
-        "https://lead-platform-3pwk.onrender.com/",  
+        "lead-platform-iota.vercel.app",  
     ],
     allow_credentials=True,
     allow_methods=["*"],
