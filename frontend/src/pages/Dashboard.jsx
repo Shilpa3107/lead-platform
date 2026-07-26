@@ -42,10 +42,6 @@ export default function Dashboard() {
   return (
     <div className="dashboard-page">
       <h1>{user?.role === 'admin' ? 'Pipeline overview' : 'Your leads'}</h1>
-      <p className="dashboard-subtitle">
-        Signed in as {user?.email} <span className="role-badge">{user?.role}</span>
-      </p>
-
       {loading && <p>Loading...</p>}
 
       {!loading && counts && (

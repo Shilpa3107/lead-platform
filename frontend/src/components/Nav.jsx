@@ -14,7 +14,6 @@ export default function Nav() {
         <Link to="/leads" className={location.pathname.startsWith('/leads') ? 'active' : ''}>Leads</Link>
       </div>
       <div className="nav-right">
-        <span>{user.email}</span>
         <span className="role-badge">{user.role}</span>
         <button onClick={logout}>Log out</button>
       </div>
