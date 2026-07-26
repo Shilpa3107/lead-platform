@@ -38,6 +38,5 @@ export default function Login() {
         Are you a potential customer? <Link to="/contact">Get in touch here</Link>
       </p>
     </form>
-    </form>
   );
 }
