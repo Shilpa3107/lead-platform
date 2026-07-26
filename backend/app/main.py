@@ -3,16 +3,27 @@ from sqlalchemy.orm import Session
 from sqlalchemy import text
 
 from app.database import get_db
-from app.routers import auth, leads, public
+from app.routers import auth, leads, public, users
 
 from app.dependencies import get_current_user, require_admin
 from app.models import User
 
+from fastapi.middleware.cors import CORSMiddleware
+
 app = FastAPI(title="Lead Platform API")
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["http://localhost:5173"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 app.include_router(auth.router)
 app.include_router(leads.router)
 app.include_router(public.router)
+app.include_router(users.router)
 
 
 @app.get("/health")

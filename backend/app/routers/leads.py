@@ -6,7 +6,7 @@ from sqlalchemy.orm import Session
 from app.database import get_db
 from app.models import User, UserRole, Lead, LeadStatus, Note, ActivityLog
 from app.schemas import (
-    LeadCreate, LeadUpdate, LeadOut, NoteCreate, NoteOut,
+    LeadCreate, LeadUpdate, LeadOut, NoteCreate, NoteOut, UserOut,
     ActivityLogOut, PaginatedLeads,
 )
 from app.dependencies import get_current_user, require_admin
@@ -128,3 +128,7 @@ def get_activity(
 ):
     get_lead_or_404_scoped(lead_id, current_user, db)
     return db.query(ActivityLog).filter(ActivityLog.lead_id == lead_id).order_by(ActivityLog.created_at.desc()).all()
+
+@router.get("/../users", response_model=list[UserOut])
+def list_users(current_user: User = Depends(require_admin), db: Session = Depends(get_db)):
+    return db.query(User).all()
