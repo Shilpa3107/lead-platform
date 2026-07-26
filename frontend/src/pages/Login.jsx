@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../AuthContext';
 
 export default function Login() {
@@ -16,7 +16,7 @@ export default function Login() {
       await login(email, password);
       navigate('/dashboard');
     }  catch (err) {
-    console.error('Login failed:', err); // so you can always see the real cause in DevTools
+    console.error('Login failed:', err); 
     if (err.response?.status === 401) {
       setError('Invalid email or password');
     } else if (err.request) {
@@ -34,6 +34,10 @@ export default function Login() {
       <input type="email" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} required />
       <input type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} required />
       <button type="submit">Log in</button>
+      <p style={{ fontSize: '13px', textAlign: 'center', marginTop: '8px' }}>
+        Are you a potential customer? <Link to="/contact">Get in touch here</Link>
+      </p>
+    </form>
     </form>
   );
 }
