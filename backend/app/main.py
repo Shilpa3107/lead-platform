@@ -16,7 +16,7 @@ app.add_middleware(
     CORSMiddleware,
     allow_origins=[
         "http://localhost:5173",
-        "lead-platform-iota.vercel.app",  
+        "https://lead-platform-iota.vercel.app",
     ],
     allow_credentials=True,
     allow_methods=["*"],
