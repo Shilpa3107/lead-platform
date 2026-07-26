@@ -14,12 +14,14 @@ app = FastAPI(title="Lead Platform API")
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:5173"],
+    allow_origins=[
+        "http://localhost:5173",
+        "https://lead-platform-3pwk.onrender.com/",  
+    ],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
-
 app.include_router(auth.router)
 app.include_router(leads.router)
 app.include_router(public.router)
