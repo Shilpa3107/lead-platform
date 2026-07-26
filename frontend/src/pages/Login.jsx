@@ -28,7 +28,7 @@ export default function Login() {
   }
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} className="auth-form">
       <h1>Log in</h1>
       {error && <p style={{ color: 'red' }}>{error}</p>}
       <input type="email" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} required />

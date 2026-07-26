@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import api from '../api';
 import { useAuth } from '../AuthContext';
-
+import PipelineStepper from '../components/PipelineStepper';
 
 const STATUSES = ['new', 'contacted', 'qualified', 'won', 'lost'];
 
@@ -72,7 +72,9 @@ export default function LeadDetail() {
     <div className="lead-detail-page">
       <h1>{lead.name}</h1>
       <p>{lead.company || 'No company listed'} · {lead.email || 'No email'}</p>
-
+      
+      <PipelineStepper status={lead.status} />
+      
       <div className="detail-row">
         <label>Status:</label>
         <select value={lead.status} onChange={(e) => handleStatusChange(e.target.value)}>
